@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD de Personas</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <h1>Gestión de Personas</h1>
+
+    <!-- Formulario para agregar o editar personas -->
+    <form th:action="@{/guardar}" th:object="${persona}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <label for="nombre">Nombre:</label>
+        <input type="text" th:field="*{nombre}" required /><br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="text" th:field="*{telefono}" required /><br>
+
+        <button type="submit">Guardar</button>
+    </form>
+
+    <hr>
+
+    <!-- Tabla para listar las personas -->
+    <h2>Lista de Personas</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="persona : ${personas}">
+                <td th:text="${persona.id}"></td>
+                <td th:text="${persona.nombre}"></td>
+                <td th:text="${persona.telefono}"></td>
+                <td>
+                    <a th:href="@{/editar/{id}(id=${persona.id})}">Editar</a>
+                    <a th:href="@{/delete/{id}(id=${persona.id})}" 
+                       onclick="return confirm('¿Estás seguro de eliminar esta persona?');">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
