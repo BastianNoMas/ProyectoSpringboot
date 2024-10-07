@@ -11,11 +11,21 @@
     <!-- Formulario para agregar o editar personas -->
     <form th:action="@{/guardar}" th:object="${persona}" method="post">
         <input type="hidden" th:field="*{id}" />
+
         <label for="nombre">Nombre:</label>
         <input type="text" th:field="*{nombre}" required /><br>
 
         <label for="telefono">Teléfono:</label>
         <input type="text" th:field="*{telefono}" required /><br>
+
+        <label for="correoElectronico">Correo Electrónico:</label>
+        <input type="email" th:field="*{correoElectronico}" required /><br>
+
+        <label for="comuna">Comuna:</label>
+        <input type="text" th:field="*{comuna}" required /><br>
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" th:field="*{direccion}" required /><br>
 
         <button type="submit">Guardar</button>
     </form>
@@ -30,6 +40,9 @@
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Teléfono</th>
+                <th>Correo Electrónico</th>
+                <th>Comuna</th>
+                <th>Dirección</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -38,6 +51,9 @@
                 <td th:text="${persona.id}"></td>
                 <td th:text="${persona.nombre}"></td>
                 <td th:text="${persona.telefono}"></td>
+                <td th:text="${persona.correoElectronico}"></td>
+                <td th:text="${persona.comuna}"></td>
+                <td th:text="${persona.direccion}"></td>
                 <td>
                     <a th:href="@{/editar/{id}(id=${persona.id})}">Editar</a>
                     <a th:href="@{/delete/{id}(id=${persona.id})}" 
