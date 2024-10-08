@@ -31,7 +31,7 @@ public class HomeController {
     }
 
     // Editar persona
-    @PutMapping("/editar/{id}")
+    @PostMapping("/editar/{id}")
     public String editar(@PathVariable Long id, Model model) {
         Persona persona = repositorio.findById(id).orElse(null);
         model.addAttribute("persona", persona);
@@ -41,7 +41,7 @@ public class HomeController {
     }
 
     // Eliminar persona
-    @DeleteMapping("/delete/{id}")
+    @PostMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         repositorio.deleteById(id);
         return "redirect:/";  // Redirige a la página principal después de eliminar
