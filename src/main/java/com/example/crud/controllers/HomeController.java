@@ -31,7 +31,6 @@ public class HomeController {
     }
 
     // Editar persona
-
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable Long id, Model model) {
         Persona persona = repositorio.findById(id).orElse(null);
@@ -42,8 +41,6 @@ public class HomeController {
     }
 
     // Eliminar persona
-
-
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         repositorio.deleteById(id);

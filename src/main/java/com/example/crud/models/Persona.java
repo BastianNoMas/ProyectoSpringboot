@@ -25,4 +25,19 @@ public class Persona {
     @Getter
     @Setter
     private String telefono;
+    
+    @Column
+    @Getter
+    @Setter
+    private String correoElectronico;
+
+    @Column
+    @Getter
+    @Setter
+    private String comuna;
+
+    @Column
+    @Getter
+    @Setter
+    private String direccion;
 }
