@@ -24,20 +24,5 @@ public class Persona {
     @Column
     @Getter
     @Setter
-    private int telefono;
-    
-    @Column
-    @Getter
-    @Setter
-    private String correoElectronico;
-    
-    @Column
-    @Getter
-    @Setter
-    private String comuna;
-        
-    @Column
-    @Getter
-    @Setter
-    private String direccion;
+    private String telefono;
 }
