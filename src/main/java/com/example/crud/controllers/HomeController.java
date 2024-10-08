@@ -14,8 +14,13 @@ public class HomeController {
 
     @Autowired
     private PersonaService personaService;
-
+    
     @GetMapping("/")
+    public String index() {
+        return "index";  // Ahora retorna la vista "index.html"
+    }
+
+    @GetMapping("/home")
     public String home(Model model) {
         List<Persona> personas = personaService.getAllPersonas();
         model.addAttribute("personas", personas);  // Pasa la lista de personas a la vista
